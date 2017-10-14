@@ -1,0 +1,19 @@
+<!DOCTYPE>
+<html>
+<body>
+<h2 style="text-align:center">这是我的第一个网页 <sub> <em>by qiqi</em> </sub> </h2>
+
+<?php
+echo "Hello World!";
+?>
+
+<p>
+学习HTML请点击下方图标
+</br>
+<a href="/http://www.w3school.com.cn/html/index.asp"><img src="/i/eg_w3school.gif" width="300" height="120" /></a>
+</br>
+学习PHP请戳<a href="/http://www.runoob.com/php/php-tutorial.html"> <b>这</b> </a>
+</p>
+
+</body>
+</html>
