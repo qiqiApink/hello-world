@@ -1,0 +1,17 @@
+程序2.
+题目： 输入三个整数x, y, z， 找出最大的数；
+<?php
+function max ($a,$b,$c)
+{
+	if ($a >= $b && $a >= $c){
+		$max = $a;
+	} else if ($b >= $c){
+		$max = $b;
+	} else {
+		$max = $c;
+	}
+	return $max;
+}
+
+echo 'max=' . max (4,7,2) . '</br>;
+?>
