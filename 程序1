@@ -7,11 +7,11 @@ $salary = 123456;
 $bonus = 0;
 if ($salary <= 100000){
 	$bonus = $salary * 1/10;
-} elseif ($salary > 100000 && $salary <= 200000){
+} else if ($salary > 100000 && $salary <= 200000){
 	$bonus = 100000 * 0.1 + ($salary-100000) * 0.075;
-} elseif ($salary > 200000 && $salary <= 400000){
+} else if ($salary > 200000 && $salary <= 400000){
 	$bonus = 100000 * 0.1 + 100000 * 0.075 + ($salary-200000) * 0.05;
-} else ($salary > 400000){
+} else {
 	$bonus = 100000 * 0.1 + 100000 * 0.075 + 200000 * 0.05 + ($salary-400000) * 0.01;
 }
 echo 'bonus :' . $bonus.'</br>'; 
