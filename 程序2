@@ -5,7 +5,7 @@ function max ($a,$b,$c)
 {
 	if ($a >= $b && $a >= $c){
 		$max = $a;
-	} elseif ($b >= $c){
+	} else if ($b >= $c){
 		$max = $b;
 	} else {
 		$max = $c;
