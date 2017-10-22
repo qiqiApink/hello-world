@@ -1,7 +1,7 @@
 程序2.
 题目： 输入三个整数x, y, z， 找出最大的数；
 <?php
-function max ($a,$b,$c)
+function max_ ($a,$b,$c)
 {
 	if ($a >= $b && $a >= $c){
 		$max = $a;
@@ -13,5 +13,5 @@ function max ($a,$b,$c)
 	return $max;
 }
 
-echo 'max=' . max (4,7,2) . '</br>;
+echo 'max=' . max_ (4,7,2) . '</br>';
 ?>
